@@ -13,3 +13,6 @@ A MEAN stack project deployed on [Heroku](https://heroku.com) with [mLab](https:
 
  - This project has got the mLab MongoDB configuration example code in <code>config\db.js</code>
  
+# Heroku instance
+
+ - This project is viewable at [Heroku](https://mean-heroku-mlab-app.herokuapp.com/)
