@@ -1,0 +1,136 @@
+<div class="container">
+
+	<div class="alert alert-success" ng-show="Message.length"> {{Message}} </div>
+<table class="table-bordered table-striped table-hover">
+<caption>{{LogsData.length}} log(s) </caption>
+  <tr>
+<th>     Company </th>	<th> Vendor Bill No	</th> <th> Vendor Bill Date </th>
+    <th> Created On </th> <th> Created On </th>
+    <th> Bill Net Amount </th> <th>	Tax Amount </th>
+    <th> Bill Type Id </th> <th> Bill Received Date </th>
+    <th> Attachment </th>
+  </tr>
+
+<tr ng-repeat="l in LogsData">
+
+  <td>     {{l.Company}} </td>	<td> {{l.VendorBillNo}}	</td> <td> {{l.VendorBillDate | date }} </td>
+      <td> {{l.CreatedOn | date }} </td> <td> {{l.CreatedOn | date }} </td>
+      <td> {{l.BillNetAmount}} </td> <td>	{{l.TaxAmount}} </td>
+      <td> {{l.BillTypeId}} </td> <td> {{l.BillReceivedDate | date }} </td>
+      <td> {{l.Attachment}} </td>
+	  <td> 
+	  <button ng-click="deleteEntry(l._id)">
+	  <i class="fa fa-trash-o" aria-hidden="true"></i> 
+	  </button>
+	  </td>
+	  <td> 
+	  <button ng-click="editEntry(l)">
+	  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+	  </button>
+	  </td>
+</tr>
+</table>
+
+<div class="row">
+  <div class="col-md-1">
+
+  </div>
+</div>
+
+<div class="row">
+
+<div class="col-md-6">
+    <h1>Add a new entry</h1>
+
+<form ng-submit="addEntry()" class="form-horizontal">
+<div class="form-group col-md-4">
+    <label for="Company">Vendor</label>
+    <input type="text" class="form-control" id="Company" ng-model="addForm.Company">
+  </div>
+  <div class="form-group col-md-4">
+    <label for="VendorBillNo"> Vendor Bill No </label>
+    <input type="number" class="form-control" id="VendorBillNo" ng-model="addForm.VendorBillNo">
+  </div>
+  <div class="form-group col-md-4">
+    <label for="VendorBillDate"> Vendor Bill Date</label>
+    <input type="date" class="form-control" id="VendorBillDate" ng-model="addForm.VendorBillDate">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="CreatedOn">Created On</label>
+    <input type="date" class="form-control" id="CreatedOn" ng-model="addForm.CreatedOn">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="BillNetAmount">Bill Net Amount</label>
+    <input type="number" class="form-control" id="BillNetAmount" ng-model="addForm.BillNetAmount">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="TaxAmount">Tax Amount</label>
+    <input type="number" class="form-control" id="TaxAmount" ng-model="addForm.TaxAmount">
+  </div>
+    <div class="form-group col-md-6">
+    <label for="BillTypeId">Bill Type Id</label>
+    <input type="number" class="form-control" id="BillTypeId" ng-model="addForm.BillTypeId">
+  </div>
+          <div class="form-group col-md-4">
+    <label for="BillReceivedDate">Bill Received Date</label>
+    <input type="date" class="form-control" id="BillReceivedDate" ng-model="addForm.BillReceivedDate">
+  </div>
+          <div class="form-group col-md-4">
+    <label for="Attachment">Attachment</label>
+    <input type="text" class="form-control" placeholder="paste file path here" id="Attachment" ng-model="addForm.Attachment">
+  </div>
+          <div class="form-group col-md-12">
+  <button type="submit" class="btn btn-default">Submit</button>
+  </div>
+</form>
+</div>
+
+<div class="col-md-6">
+    <h1>Update an existing entry</h1>
+
+<form ng-submit="editEntry()" class="form-horizontal">
+<div class="form-group col-md-4">
+    <label for="Company">Vendor</label>
+    <input type="text" class="form-control" id="Company" ng-model="editForm.Company">
+  </div>
+  <div class="form-group col-md-4">
+    <label for="VendorBillNo"> Vendor Bill No </label>
+    <input type="number" class="form-control" id="VendorBillNo" ng-model="editForm.VendorBillNo">
+  </div>
+  <div class="form-group col-md-4">
+    <label for="VendorBillDate"> Vendor Bill Date</label>
+    <input type="date" class="form-control" id="VendorBillDate" ng-model="editForm.VendorBillDate">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="CreatedOn">Created On</label>
+    <input type="date" class="form-control" id="CreatedOn" ng-model="editForm.CreatedOn">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="BillNetAmount">Bill Net Amount</label>
+    <input type="number" class="form-control" id="BillNetAmount" ng-model="editForm.BillNetAmount">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="TaxAmount">Tax Amount</label>
+    <input type="number" class="form-control" id="TaxAmount" ng-model="editForm.TaxAmount">
+  </div>
+    <div class="form-group col-md-6">
+    <label for="BillTypeId">Bill Type Id</label>
+    <input type="number" class="form-control" id="BillTypeId" ng-model="editForm.BillTypeId">
+  </div>
+          <div class="form-group col-md-4">
+    <label for="BillReceivedDate">Bill Received Date</label>
+    <input type="date" class="form-control" id="BillReceivedDate" ng-model="editForm.BillReceivedDate">
+  </div>
+          <div class="form-group col-md-4">
+    <label for="Attachment">Attachment</label>
+    <input type="text" class="form-control" placeholder="paste file path here" id="Attachment" ng-model="editForm.Attachment">
+  </div>
+          <div class="form-group col-md-12">
+  <button type="submit" class="btn btn-default">Update</button>
+  </div>
+</form>
+</div>
+
+</div>
+
+</div>
