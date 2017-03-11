@@ -4,10 +4,10 @@ A MEAN stack project deployed on [Heroku](https://heroku.com) with [mLab](https:
 # Local setup
 
  - Install the latest version of **Node** and **npm**
- - cd to the project directory and run <code>npm install</code>
- - (optional) to install bower dependencies run <code>bower install</code>
- - run node server.js
- - head to http://localhost:8080
+ - CD to the project directory and run <code>npm install</code>
+ - (optional) To install bower dependencies run <code>bower install</code>
+ - Run node server.js
+ - Head to [http://localhost:8080](http://localhost:8080)
  
 # mLab database deployment
 
